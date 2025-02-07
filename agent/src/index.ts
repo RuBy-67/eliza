@@ -1,5 +1,5 @@
 import { PGLiteDatabaseAdapter } from "@elizaos/adapter-pglite";
-//import { PostgresDatabaseAdapter } from "@elizaos/adapter-postgres";
+import { PostgresDatabaseAdapter } from "@elizaos/adapter-postgres";
 import { QdrantDatabaseAdapter } from "@elizaos/adapter-qdrant";
 import { RedisClient } from "@elizaos/adapter-redis";
 import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
@@ -728,7 +728,7 @@ function initializeDatabase(dataDir: string) {
             });
 
         return db;
-    } /*else if (process.env.POSTGRES_URL) {
+    } else if (process.env.POSTGRES_URL) {
         elizaLogger.info("Initializing PostgreSQL connection...");
         const db = new PostgresDatabaseAdapter({
             connectionString: process.env.POSTGRES_URL,
@@ -747,7 +747,7 @@ function initializeDatabase(dataDir: string) {
             });
 
         return db;
-    }*/ else if (process.env.PGLITE_DATA_DIR) {
+    } else if (process.env.PGLITE_DATA_DIR) {
         elizaLogger.info("Initializing PgLite adapter...");
         // `dataDir: memory://` for in memory pg
         const db = new PGLiteDatabaseAdapter({
