@@ -1,4 +1,4 @@
-import { Character, Clients, ModelProviderName } from "@elizaos/core";
+import { Character, ModelProviderName } from "./types.ts";
 import mysql from "mysql2/promise";
 
 // Configuration de la base de données
