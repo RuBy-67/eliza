@@ -239,7 +239,7 @@ export class AgentRuntime implements IAgentRuntime {
     constructor(opts: {
         conversationLength?: number; // number of messages to hold in the recent message cache
         agentId?: UUID; // ID of the agent
-        character?: Character; // The character to use for the agent
+        character?: Promise<Character>; // The character to use for the agent
         token: string; // JWT token, can be a JWT token if outside worker, or an OpenAI token if inside worker
         serverUrl?: string; // The URL of the worker
         actions?: Action[]; // Optional custom actions
