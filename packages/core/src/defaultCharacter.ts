@@ -1,4 +1,4 @@
-import { Character, ModelProviderName } from "./types.ts";
+import { Character, Clients, ModelProviderName } from "@elizaos/core";
 import mysql from "mysql2/promise";
 
 // Configuration de la base de données
@@ -28,7 +28,7 @@ const fetchData = async (tables: string[]): Promise<Record<string, any[]>> => {
 };
 
 // Génération du caractère
-export const character = (async (): Promise<Character> => {
+export const defaultCharacter = (async (): Promise<Character> => {
     // Tables nécessaires
     const tables = [
         "character_adjectives",
